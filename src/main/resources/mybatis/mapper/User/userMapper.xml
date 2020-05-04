@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sql.dao.userDao">
+    <!--新增用户-->
+    <insert id="saveUser" parameterType="com.sql.entity.userInfo">
+        insert into t_employee_info
+            (eid,
+            ename,
+            esex,
+            ebirthday,
+            eaddress,
+            edate
+            )
+        values
+           (#{eid},
+            #{ename},
+            #{esex},
+            #{ebirthday},
+            #{eaddress},
+            #{edate},
+            0,
+            now(),
+            #{createBy},
+            NOW(),
+            #{lastModifiedBy},
+            0)
+    </insert>
+</mapper>
